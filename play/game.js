@@ -283,7 +283,7 @@ function updateLeaderboard(newScore) {
 
   const leaderboardList = document.getElementById("leaderboard-list");
   leaderboardList.innerHTML = leaderboard
-    .map((score) => `<li>${score}</li>`)
+    .map((score, index) => `<li>${index + 1}. ${score}</li>`)
     .join("");
 }
 
@@ -368,5 +368,6 @@ function gameLoop(timestamp) {
 
 background.onload = () => {
   drawBackground();
+  updateLeaderboard();
   gameLoop(0);
 };
